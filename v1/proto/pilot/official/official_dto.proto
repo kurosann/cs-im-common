@@ -1,0 +1,18 @@
+syntax = "proto3";
+package official;
+option go_package = "vane-common/v1/pilot/official";
+
+// 通用请求
+message MsgReq {
+  string method =1;
+  string payload =2;
+  int64 ts = 3; // 时间
+  string nonce = 4; // 随机数
+  string jwt = 5;
+}
+
+message MsgRes {
+  string msg=1;    // 加密信息
+  int64  ts=2;     // 时间
+  string nonce=3;  // 随机数
+}

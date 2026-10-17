@@ -1,0 +1,9 @@
+syntax = "proto3";
+package oplog;
+option go_package = "vane-common/oplog/proto";
+import "oplog_dto.proto";
+
+service OplogService {
+	rpc RecordOplog(RecordOplogReq) returns (RecordOplogResp);
+	rpc QueryOplog(QueryOplogReq) returns (QueryOplogResp);
+}

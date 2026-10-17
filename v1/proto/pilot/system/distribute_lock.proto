@@ -1,0 +1,15 @@
+syntax = "proto3";
+package system;
+option go_package = "vane-common/v1/pilot/system";
+import "distribute_lock_dto.proto";
+
+service DistributeLockService {
+    // 取锁
+    rpc Lock(DistributeLock) returns (DistributeLock) {}
+    // 释放锁
+    rpc Unlock(DistributeLock) returns (DistributeLock) {}
+    // 续约锁
+    rpc KeepAlive(DistributeLock) returns (DistributeLock) {}
+    // 获取一组锁的资源数量
+    rpc CountGroup(DistributeLockGroupReq) returns (DistributeLockGroup) {}
+}

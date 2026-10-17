@@ -1,0 +1,15 @@
+syntax = "proto3";
+package public;
+option go_package = "vane-common/v1/pilot/public";
+import "public_server_dto.proto";
+
+service TlgPublicService {
+  rpc AccLogin(AccLoginReq) returns (LoginRes);
+  rpc PublicServer(PublicServerReq) returns (PublicServerRes);
+  rpc PublicSetting(PublicServerReq) returns (PublicServerRes);
+  rpc PublicTime(PublicServerReq) returns (PublicServerRes);
+  rpc Translate(PublicTranslateReq) returns (PublicTranslateRes);
+  rpc PublicNotice(NoticeMsgReq) returns (stream NoticeMsgRes);
+  rpc GetNoticeList(NoticeMsgReq) returns (NoticeMsgRes);
+}
+

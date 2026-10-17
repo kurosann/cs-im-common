@@ -1,0 +1,8 @@
+syntax = "proto3";
+package official;
+option go_package = "vane-common/v1/pilot/official";
+import "official_dto.proto";
+
+service TlgV1OfficialService {
+  rpc OfficialReqOpts(MsgReq) returns (MsgRes);
+}

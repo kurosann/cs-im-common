@@ -1,0 +1,10 @@
+syntax = "proto3";
+package notice_server;
+option go_package = "vane-common/v1/pilot/notice_server";
+
+import "notice_server_dto.proto";
+
+service TlgNoticeServer {
+  rpc NoticeListServer(NoticeMsgReq) returns (stream NoticeMsgRes);
+  rpc GetNoticeList(NoticeMsgReq) returns (NoticeMsgRes);
+}

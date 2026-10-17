@@ -1,0 +1,13 @@
+syntax = "proto3";
+package system;
+option go_package = "vane-common/v1/pilot/system";
+import "task_record_dto.proto";
+
+service TaskRecordService {
+  rpc SaveStepRecord(StepRecord) returns (StepRecord);
+  rpc SaveTaskRecord(TaskRecord) returns (TaskRecord);
+  rpc UpdateStepRecord(StepRecord) returns (StepRecord);
+  rpc UpdateTaskRecord(TaskRecord) returns (TaskRecord);
+  rpc QueryStepRecord(QueryStepRecordReq) returns (StepRecord);
+  rpc QueryTaskRecord(QueryTaskRecordReq) returns (TaskRecord);
+}

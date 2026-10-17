@@ -1,0 +1,29 @@
+syntax = "proto3";
+
+package monitor;
+
+option go_package = "vane-common/v1/proto/pilot/monitor";
+
+service MonitorService {
+    rpc Ping(PingRequest) returns (PingResponse) {};
+    rpc SendLog(LogRequest) returns (LogResponse) {};
+}
+
+message PingRequest {
+    string message = 1;
+}
+
+message PingResponse {
+    string message = 1;
+}
+
+message LogRequest {
+    string service_name = 1;
+    string level = 2;
+    // message 字段现在被定义为必须是一个 JSON 格式的字符串
+    string json_payload = 3;
+}
+
+message LogResponse {
+    bool success = 1;
+}

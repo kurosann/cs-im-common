@@ -1,0 +1,50 @@
+syntax = "proto3";
+
+package system;
+option go_package = "vane-common/v1/pilot/system";
+
+
+message SubscribeReq {
+    string topic = 1;
+    string endpoint = 2;
+}
+
+message SubscribeResp {
+    string topic = 1;
+    bytes data = 2;
+}
+
+
+message SendReq {
+    string topic = 1;
+    bytes data = 2;
+}
+
+message SendResp {
+}
+
+message UpdateReq {
+    string topic = 1;
+    repeated string endpoints = 2;
+}
+message UpdateResp {
+}
+
+message PublishReq {
+    string topic = 1;
+    bytes data = 2;
+}
+message PublishResp {
+}
+
+service SubscriberService {
+    rpc Subscribe(SubscribeReq) returns (stream SubscribeResp);
+}
+service PublisherService {
+    rpc Publish(PublishReq) returns (PublishResp);
+}
+
+service PublisherInternalService {
+    rpc Send(SendReq) returns (SendResp);
+    rpc Update(UpdateReq) returns (UpdateResp);
+}

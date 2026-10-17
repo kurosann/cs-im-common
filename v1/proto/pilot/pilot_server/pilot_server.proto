@@ -1,0 +1,19 @@
+syntax = "proto3";
+package pilot_server;
+option go_package = "vane-common/v1/pilot/pilot_server";
+import "pilot_server_dto.proto";
+
+service TlgV1Service {
+  rpc UpdateToken(TokenExtendedReq) returns (TokenExtendedRes);
+  rpc AccLoginOut(AccLoginOutReq) returns (AccLoginOutRes);
+  rpc Ping(PingReq) returns (PingRes);
+  rpc AccountProdOpts(MsgReq) returns (MsgRes);
+}
+
+service AndroidV1Service {
+  rpc AndroidVersion(AndroidVersionReq) returns (AndroidVersionRes);
+}
+
+service ServerService {
+  rpc FindServer(ServerIpReq) returns (ServerIpRes);
+}

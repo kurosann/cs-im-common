@@ -1,0 +1,22 @@
+syntax = "proto3";
+package system;
+option go_package = "vane-common/v1/pilot/system";
+
+message DistributeLock {
+    string key = 1; // 锁的key required
+    int64 ttl = 2; // 锁的租约 required
+    string service_name = 3; // 服务名称 required
+    string group = 4; // 锁组名称 optional
+    string value = 5; // 锁的值 optional
+}
+
+message DistributeLockGroup {
+    string group = 1; // 锁组名称 required
+    string service_name = 2; // 服务名称 required
+    int64 resource_count = 3; // 资源数量 required
+}
+
+message DistributeLockGroupReq {
+    string group = 1; // 锁组名称 required
+    string service_name = 2; // 服务名称 required
+}

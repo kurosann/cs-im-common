@@ -1,0 +1,41 @@
+syntax = "proto3";
+package system;
+option go_package = "vane-common/v1/pilot/system";
+import "system_base.proto";
+
+message StepRecord {
+  Base Base = 1;
+  string Status = 2;
+  int64 Order = 3;
+  string StepName = 4;
+  string TaskID = 5;
+  string StepID = 6;
+  int64 ProcessPosition = 7;
+  string Err =8;
+  bytes Payload = 9;
+  bytes Result = 10;
+  string ServiceName = 11;
+}
+
+
+message TaskRecord {
+  Base Base = 1;
+  string Status = 2;
+  int64 Order = 3;
+  string StepName = 4;
+  string StepID = 5;
+  int64 ProcessPosition = 6;
+  string Err =7;
+  bytes Payload = 8;
+  bytes Result = 9;
+  string ServiceName = 10;
+  string TaskCode = 11;
+}
+
+message QueryStepRecordReq {
+  string StepID = 1;
+}
+
+message QueryTaskRecordReq {
+  string TaskID = 1;
+}
